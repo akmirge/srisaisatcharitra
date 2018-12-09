@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-5">
+    <app-chapter-list
+       *ngIf="preferredLanguageId; else languageError"
+       [preferredLanguageId]="preferredLanguageId"
+       (chapterWasSelected)="selectedChapter = $event"></app-chapter-list>
+    <ng-template #languageError>
+      <p>Please select a language</p>
+    </ng-template>
+  </div>
+  <div class="col-md-7">
+    <app-chapter-detail
+       *ngIf="selectedChapter; else chapterError"
+       [chapter]="selectedChapter"></app-chapter-detail>
+    <ng-template #chapterError>
+      <p>Please select a chapter!</p>
+    </ng-template>
+  </div>
+</div>

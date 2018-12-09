@@ -1,0 +1,14 @@
+  <div class="row" *ngIf="chapter">
+    <div class="col-xs-12">
+        <div class="card">
+            <h1 class="card-header">Chapter - {{chapter.id}} Summary</h1>
+            <div class="card-body">
+              <h2 class="card-text text-monospace">{{ chapter.title }} </h2>
+              <a target="_blank" [href]="chapter.url" class="btn btn-outline-primary btn-lg m-2">Preview</a>
+              <a target="_blank" [href]="chapter.url" class="btn btn-primary btn-lg m-2" download="{{ chapter.title }}.pdf">Download</a>
+            </div>
+          </div>
+    </div>
+  </div>
+
+  

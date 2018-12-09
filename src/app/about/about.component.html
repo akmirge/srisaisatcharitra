@@ -1,0 +1,128 @@
+<ngb-carousel [showNavigationIndicators]="true" [showNavigationArrows]="true">
+    <ng-template ngbSlide *ngFor="let image of images">
+      <img [src]="image.url" [alt]="image.alt" class="img-responsive" width="100%" height="550px">
+    </ng-template>
+</ngb-carousel>
+
+<ng-template #satcharitaContent let-satcharita>
+    <div class="modal-header">
+      <h4 class="modal-title">What is Sai Satcharitra?</h4>
+      <button type="button" class="close" aria-label="Close" (click)="satcharita.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body lead">
+      <section>
+        <blockquote class="blockquote">
+            <p>
+              <strong>
+                The Sai Satcharita (Marathi: श्री साई सत्चरित्र, also called Sri Sai Satcharitra) is a biography based on the true life stories of Shirdi Sai Baba. Authored by Shri. Govind Raghunath Dabholkar also known as Hemadpant, 
+                the original edition of the Sai Satcharitra was published in Marathi on 26 November, 1930. A subsequent english edition was soon published in 1944, by Shri. Nagash Devastate (N.V.) Gunaji, translated from the original Marathi composition.
+                The work has since been translated to English, Hindi, Gujarati, Kannada, Tamil, Telugu, Sindhi, Bengali, Odiya, Nepali, Punjabi and Konkani languages. Another English version was also published in New York.      
+              </strong>
+            </p>
+            <p>
+              <strong>
+                Every time one reads Sai Satcharitra, it provides a new perspective and ever evolving answers to the questions of the devotees and hence Sai Satcharitra is a treasure imparting joy and contentment to the readers. 
+              </strong>
+              </p>
+          <footer class="blockquote-footer">From wikipedia</footer>
+        </blockquote>
+      </section>
+      <p>
+        <strong>
+          Sri Sai Satcharitra is like Udi for spiritual upliftment and relieves us from all the suffering and problems of day to day life. Every Sai devotees should read this book daily, if not one chapter, 
+          atleast one page and if not one page atleast one paragraph. I myself try to read atleast one or more chapters every Thursday night before I go to bed. 
+        </strong>
+        </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="satcharita.close('Close click')">Close</button>
+    </div>
+</ng-template>
+<ng-template #parayanamContent let-parayanam>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Shri Sai Satcharitra Parayanam method</h4>
+      <button type="button" class="close" aria-label="Close" (click)="parayanam.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body lead">
+      <p>
+        <strong>
+            Shri Sai Satcharitra is meant to be made in eight consecutive days, starting on a thursday and ending 
+            by the next Thursday. Chapters 1 through 51 shall be read in seven days ending on the eight day again with Chapter 51.
+            This method is only a suggestion and Sai Satcharitra can be read at anytime, in any way and under any circumstances.
+            The method is encouraged to devotees for discipline and to be able to successfully finish all the chapters 
+            and avoid distractions and procastinations due to a long break. Divine authors of Satcharitra have organized
+            the chapters to maintain a proper flow in the lifetime events of Baba, and hence is the careful clubbing 
+            of some chapters like chapters 16-17, 18-19 and 43-44 for example along with reading of eight chapters on days 2 and 4.
+          </strong>
+        </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="parayanam.close('Close click')">Close</button>
+    </div>
+  </div>
+</ng-template>
+<ng-template #utilizationContent let-utilization>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Sai Satcharitra utilization</h4>
+      <button type="button" class="close" aria-label="Close" (click)="utilization.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body lead">
+      <strong>
+        <ul>
+          <li>Get the book, 'Shri Sai Satcharitra' in whatever language one chooses to read. Neatly wrap it up in a piece of new cloth, and place it near Baba's photograph or idol with due sanctity.</li>
+          <li>Whether at home or elsewhere, one should always read a few pages of the book every night before going to sleep. Every devotee should try to keep Baba as the last thought before sleep.</li>
+          <li>During crisis it should be read devotionally for a week, as is mentioned in 'Shri Sai Satcharitra'. If possible, reading should begin on a Thursday or on some other special day, 
+                such as Ramnavami, Dussehra, Gurupurnima, Janmashtmi, Mahashivratri, Navratri, etc. After it's completion on the 
+                seventh day one should feed the poor and destitute either in the temple/home or wherever possible.</li>
+          <li>One should read it sitting in some isolated corner in the temple or in front of Baba's statue or Photograph/painting. If other people are present, then it should be read to them 
+                or with them as well. Group reading should always be encouraged.</li>
+          <li>Wherever and whenever possible, it should be read continuously from sunrise to sunset in the temples on auspicious days.</li>
+          <li>'Shri Sai Satcharitra' should be read to the devotees - sick, old aged and those nearing death as much as possible. All of them will get peace.</li>
+          <li>'Shri Sai Satcharitra' is a reasonably priced book and is easily available at Shirdi. Therefore, any devotee visiting Shirdi must bring a few copies with him to distribute among the deserving people free of cost.</li>
+          <li>At times, of distress and agony if one sincerely searches for the answers from 'Shri Sai Satcharitra' he will not only find the answers but also solace. His faith will grown in Baba. Shri Sai Satcharitra should be taken by all Sai devotees as Geeta and Bible.</li>
+        </ul>
+      </strong>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="utilization.close('Close click')">Close</button>
+    </div>
+  </div>
+</ng-template>
+<div class="container marketing mt-2">
+    <div class="row">
+        <div class="col-lg-4 text-center">
+          <span style="font-size: 3em; color: Tomato;">
+            <i class="fa fa-heart"></i>
+          </span>
+          <h4>What is Sai Satcharitra?</h4>
+          <button class="btn btn-outline-primary mb-2 mr-2" (click)="openBackDropCustomClass(satcharitaContent)">View details »</button>
+        </div>
+        <div class="col-lg-4 text-center">
+          <span style="font-size: 48px; color: Dodgerblue;">
+            <i class="fa fa-heart"></i>
+          </span>
+          <h4>Satcharitra Parayanam method</h4>
+          <button class="btn btn-outline-primary mb-2 mr-2" (click)="openBackDropCustomClass(parayanamContent)">View details »</button>
+        </div>
+        <div class="col-lg-4 text-center">
+          <span style="font-size: 3rem;">
+            <span style="color: Mediumslateblue;">
+              <i class="fa fa-heart"></i>
+            </span>
+          </span>          
+          <h4>Sai Satcharitra utilization</h4>
+          <button class="btn btn-outline-primary mb-2 mr-2" (click)="openBackDropCustomClass(utilizationContent)">View details »</button>
+        </div>
+      </div>
+</div>
+
+  
+  

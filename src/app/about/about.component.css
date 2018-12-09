@@ -1,0 +1,7 @@
+.modal-body{
+    height: 225px;
+    overflow-y: auto;
+}
+.light-blue-backdrop {
+    background-color: #5cb3fd;
+}
