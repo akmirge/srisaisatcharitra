@@ -27,10 +27,10 @@ export class ModelResolver {
                         this.messages.reportMessage(new Message('Loading data...'));
                         return this.dataSource.homeImages;
                     }
-                    if (!this.repository.getLocalImages() ||
-                        this.repository.getLocalImages().length === 0) {
+                    if (!this.repository.getProfileImages() ||
+                        this.repository.getProfileImages().length === 0) {
                         this.messages.reportMessage(new Message('Loading data...'));
-                        return this.dataSource.localImages;
+                        return this.dataSource.profileImages;
                     }
                     if (this.repository.getLanguages().length === 0) {
                         this.messages.reportMessage(new Message('Loading data...'));

@@ -12,7 +12,7 @@ const deactivateGuard = new InjectionToken('deactivateGuard');
 const routes: Routes = [
   {path: '', component: HomeComponent, resolve: {model: ModelResolver}},
   {path: 'about', component: AboutComponent, resolve: {model: ModelResolver}},
-  {path: 'contact', component: ContactComponent},
+  {path: 'contact', component: ContactComponent, resolve: {model: ModelResolver}},
   {path: 'externalRedirect', canActivate: [externalUrlProvider], component: NotFoundComponent},
   {path: '**', redirectTo: ''}
 ];

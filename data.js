@@ -22,10 +22,8 @@ module.exports = function () {
             {url: '../../assets/home/images/image9.jpg', alt: 'Sri Sai Samadhi mandir and Dwarkamai'},
             {url: '../../assets/home/images/image10.jpg', alt: 'Sri Sai message on love and serve all'}
         ],
-        localImages: [
-            {id: 0, url: '../../assets/images/charitra-hindi.jpg', alt: 'Sri Sai Satcharitra'},
-            {id: 1, url: '../../assets/images/charitra-hindi.jpg', alt: 'Sri Sai Satcharitra'},
-            {id: 2, url: '../../assets/images/charitra-hindi.jpg', alt: 'Sri Sai Satcharitra'}
+        profileImages: [
+            {id: 1, url: '../../assets/images/AnilMirge.jpg', alt: 'ANIL MIRGE'},
         ],
         languages:[
             {id: 1, name: 'Hindi'},

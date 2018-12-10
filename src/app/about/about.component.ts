@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Image } from '../model/image.model';
 import { SatcharitraRepository } from '../model/satcharita.repository';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -11,11 +11,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AboutComponent implements OnInit {
   public images: Image[];
-  public localImages: Image[];
   constructor(private repository: SatcharitraRepository,
                 private modalService: NgbModal) {
     this.images = repository.getAboutImages();
-    this.localImages = repository.getLocalImages();
   }
 
   ngOnInit() {
@@ -26,12 +24,8 @@ export class AboutComponent implements OnInit {
     this.modalService.open(content, {backdropClass: 'light-blue-backdrop', size: 'lg', centered: true});
   }
 
-
   getImages() {
     return this.images;
   }
 
-  getLocalImage(id: number) {
-   return this.localImages.find(image => image.id === id);
-  }
 }

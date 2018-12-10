@@ -29,17 +29,11 @@ export class RestDataSource {
         return this.$http.get<Image[]>(this.baseUrl + 'homeImages');
     }
 
-    get localImages(): Observable<Image[]> {
-        return this.$http.get<Image[]>(this.baseUrl + 'localImages');
+    get profileImages(): Observable<Image[]> {
+        return this.$http.get<Image[]>(this.baseUrl + 'profileImages');
     }
 
     getSatcharitras(): Observable<Satcharitra[]> {
         return this.$http.get<Satcharitra[]>(this.baseUrl + 'satcharitras');
     }
-
-    // getSatcharitraChapters(id: number): Observable<Chapter[]> {
-    //     const param: any = {'id': id};
-    //     return this.$http.get<Chapter[]>(this.baseUrl + 'satcharitras', {params: param});
-    //     // return this.$http.get<Chapter[]>(this.baseUrl + 'satcharitras/${id}');
-    // }
 }

@@ -9,7 +9,7 @@ import { Satcharitra } from './model.satcharitra';
 export class SatcharitraRepository {
     private aboutImages: Image[];
     private homeImages: Image[];
-    private localImages: Image[];
+    private profileImages: Image[];
     private languages: Language[];
     private satcharitras: Satcharitra[];
 
@@ -22,8 +22,8 @@ export class SatcharitraRepository {
             this.homeImages = data;
         });
 
-        dataSource.localImages.subscribe(data => {
-            this.localImages = data;
+        dataSource.profileImages.subscribe(data => {
+            this.profileImages = data;
         });
 
         dataSource.getLanguages().subscribe(data => {
@@ -44,8 +44,8 @@ export class SatcharitraRepository {
         return this.homeImages;
     }
 
-    getLocalImages(): Image[] {
-        return this.localImages;
+    getProfileImages(): Image[] {
+        return this.profileImages;
     }
     getLanguages(): Language[] {
         return this.languages;
