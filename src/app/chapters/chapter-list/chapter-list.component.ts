@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 import { Chapter } from 'src/app/model/chapter.model';
-import { SatcharitraRepository } from 'src/app/model/satcharita.repository';
+import { HttpClient } from '@angular/common/http';
+import { Satcharitra } from 'src/app/model/model.satcharitra';
 
 @Component({
   selector: 'app-chapter-list',
@@ -9,12 +10,14 @@ import { SatcharitraRepository } from 'src/app/model/satcharita.repository';
 })
 export class ChapterListComponent implements OnInit, OnChanges {
   @Input() preferredLanguageId: number;
+  public satcharitras: Satcharitra[];
   public chapters: Chapter[] = [];
   @Output() chapterWasSelected = new EventEmitter<Chapter>();
   public chaptersPerPage = 5;
   public selectedPage = 1;
+  public _url = '../../assets/data.json';
 
-  constructor(private repository: SatcharitraRepository) {}
+  constructor(private httpService: HttpClient) {}
 
   ngOnInit() {
   }
@@ -27,8 +30,12 @@ export class ChapterListComponent implements OnInit, OnChanges {
 
   private loadChaptersPerPage() {
     const pageIndex = (this.selectedPage - 1) * this.chaptersPerPage;
-    this.chapters = this.getSatcharitraChapters(this.preferredLanguageId)
-      .slice(pageIndex, pageIndex + this.chaptersPerPage);
+    this.httpService.get(this._url).toPromise()
+      .then((data: any) => {
+        this.satcharitras = data['satcharitras'];
+        this.chapters = this.getSatcharitraChapters(this.preferredLanguageId)
+        .slice(pageIndex, pageIndex + this.chaptersPerPage);
+      });
   }
 
   changePage(newPage: number) {
@@ -48,7 +55,7 @@ export class ChapterListComponent implements OnInit, OnChanges {
   }
 
   getSatcharitraChapters(id: number): Chapter[] {
-    return this.repository.getSatcharitraChapters(id);
+    return this.satcharitras.find(s => Number(s.id) === id).chapters;
   }
 
   onChapterSelection(chapter: Chapter) {

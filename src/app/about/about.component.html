@@ -1,9 +1,12 @@
-<ngb-carousel [showNavigationIndicators]="true" [showNavigationArrows]="true">
-    <ng-template ngbSlide *ngFor="let image of images">
-      <img [src]="image.url" [alt]="image.alt" class="img-responsive" width="100%" height="550px">
-    </ng-template>
-</ngb-carousel>
-
+<div class="row">
+  <div class="col-md-12">
+    <ngb-carousel *ngIf="images" [showNavigationIndicators]="true" [showNavigationArrows]="true">
+        <ng-template ngbSlide *ngFor="let image of images">
+          <img [src]="image.url" [alt]="image.alt" class="img-responsive" width="100%" height="500px">
+        </ng-template>
+    </ngb-carousel>
+  </div>
+</div>
 <ng-template #satcharitaContent let-satcharita>
     <div class="modal-header">
       <h4 class="modal-title">What is Sai Satcharitra?</h4>

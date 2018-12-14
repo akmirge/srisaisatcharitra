@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SatcharitraRepository } from '../model/satcharita.repository';
 import { Image } from '../model/image.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -8,14 +8,18 @@ import { Image } from '../model/image.model';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-
+  public _url = '../../assets/data.json';
   public images: Image[];
 
-  constructor(private repository: SatcharitraRepository) {
-    this.images = repository.getProfileImages();
-   }
+  constructor(private httpService: HttpClient) {
+  }
 
   ngOnInit() {
+    this.httpService.get(this._url).subscribe(
+      data => {
+        this.images = data['profileImages'];
+      }
+    );
   }
 
   getProfileImage(id: number) {

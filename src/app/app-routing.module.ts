@@ -3,16 +3,15 @@ import { Routes, RouterModule, ActivatedRouteSnapshot } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { ModelResolver } from './model/model.resolver';
 import { NotFoundComponent } from './not-found.component';
 
 const externalUrlProvider = new InjectionToken('externalUrlRedirectResolver');
 const deactivateGuard = new InjectionToken('deactivateGuard');
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, resolve: {model: ModelResolver}},
-  {path: 'about', component: AboutComponent, resolve: {model: ModelResolver}},
-  {path: 'contact', component: ContactComponent, resolve: {model: ModelResolver}},
+  {path: '', component: HomeComponent},
+  {path: 'about', component: AboutComponent},
+  {path: 'contact', component: ContactComponent},
   {path: 'externalRedirect', canActivate: [externalUrlProvider], component: NotFoundComponent},
   {path: '**', redirectTo: ''}
 ];

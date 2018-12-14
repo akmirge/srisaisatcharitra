@@ -13,10 +13,10 @@ import { ChaptersComponent } from './chapters/chapters.component';
 import { ChapterListComponent } from './chapters/chapter-list/chapter-list.component';
 import { ChapterDetailComponent } from './chapters/chapter-detail/chapter-detail.component';
 import { ChapterItemComponent } from './chapters/chapter-item/chapter-item.component';
-import { ModelModule } from './model/model.module';
 import { MessageModule } from './messages/message.module';
 import { ExternalUrlDirective } from './external-url.directive';
 import { NotFoundComponent } from './not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,12 +32,12 @@ import { NotFoundComponent } from './not-found.component';
     ExternalUrlDirective
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     NgbModule,
     AppRoutingModule,
     UiModule,
-    ModelModule,
     MessageModule
   ],
   providers: [NgbActiveModal],

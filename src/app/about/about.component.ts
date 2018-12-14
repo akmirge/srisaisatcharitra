@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Image } from '../model/image.model';
-import { SatcharitraRepository } from '../model/satcharita.repository';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-about',
@@ -11,21 +11,20 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AboutComponent implements OnInit {
   public images: Image[];
-  constructor(private repository: SatcharitraRepository,
-                private modalService: NgbModal) {
-    this.images = repository.getAboutImages();
-  }
+  public _url = '../../assets/data.json';
 
-  ngOnInit() {
-    this.getImages();
+  constructor(private httpService: HttpClient,
+    private modalService: NgbModal) {}
+
+  ngOnInit(): void  {
+    this.httpService.get(this._url).subscribe(
+      data => {
+        this.images = data['aboutImages'];
+      }
+    );
   }
 
   openBackDropCustomClass(content) {
     this.modalService.open(content, {backdropClass: 'light-blue-backdrop', size: 'lg', centered: true});
   }
-
-  getImages() {
-    return this.images;
-  }
-
 }
