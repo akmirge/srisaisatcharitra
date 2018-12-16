@@ -2,7 +2,8 @@
   <a href="#" class="list-group-item clearfix text-center"
     (click)="onSelected()">
     <span>
-      <h4 class="list-group-item-heading">Chapter - {{ chapter.id }}</h4>
+      <h4 *ngIf="preferredLanguageId <= 3" class="list-group-item-heading">Chapter - {{ chapter.id }}</h4>
+      <h4 *ngIf="preferredLanguageId >= 4" class="list-group-item-heading">All Chapters</h4>
     </span>
   </a>
 </div>

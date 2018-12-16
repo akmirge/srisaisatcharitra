@@ -9,6 +9,7 @@ import { Chapter } from 'src/app/model/chapter.model';
 export class ChapterDetailComponent implements OnInit {
 
   @Input() chapter: Chapter;
+  @Input() preferredLanguageId: number;
 
   constructor() { }
 

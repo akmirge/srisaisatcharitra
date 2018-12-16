@@ -15,16 +15,18 @@
   <form #languageForm="ngForm">
     <div class="form-group">
       <label for="language"><h2>Please select your language: </h2></label>
-      <select class="form-control-lg ml-2" id="language"
-              required
-              name="language" [(ngModel)]="preferredLanguageId"
-              #language="ngModel">
-              <option [ngValue]="null">Please Select</option>
-              <option *ngFor="let language of languages" [ngValue]="language.id">{{language.name}}</option>
-      </select>
-      <div [hidden]="language.valid || language.pristine" class="alert alert-danger">
-        Language is required
-      </div>
+      <ng-select [items]="languages" id="language" [ngStyle]="{'display':'inline-block', 'width': '350px', 'margin': '10px'}"
+            bindLabel="name"
+            bindValue="id"
+            groupBy="category"
+            [multiple]="false"
+            name="language"
+            placeholder="Please Select"
+            [(ngModel)]="preferredLanguageId">
+            <ng-template ng-optgroup-tmp let-item="item">
+              <span style="vertical-align: middle; font-weight: bold;">{{item.category}}</span>
+            </ng-template>
+      </ng-select>
     </div>
   </form>
 </div>

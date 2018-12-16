@@ -10,6 +10,7 @@ export class ChapterItemComponent implements OnInit {
 
   @Output() chapterSelected: EventEmitter<void> = new EventEmitter<void>();
   @Input() chapter: Chapter;
+  @Input() preferredLanguageId: number;
 
   constructor() { }
 

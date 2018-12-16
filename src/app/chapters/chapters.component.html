@@ -11,7 +11,7 @@
   <div class="col-md-7">
     <app-chapter-detail
        *ngIf="selectedChapter; else chapterError"
-       [chapter]="selectedChapter"></app-chapter-detail>
+       [preferredLanguageId]="preferredLanguageId" [chapter]="selectedChapter"></app-chapter-detail>
     <ng-template #chapterError>
       <p>Please select a chapter!</p>
     </ng-template>

@@ -1,5 +1,5 @@
 <div class="container-fluid" *ngIf="chapters.length > 0">
-      <app-chapter-item *ngFor="let chapter of chapters" [chapter]="chapter" (chapterSelected)="onChapterSelection(chapter)"></app-chapter-item>
+      <app-chapter-item *ngFor="let chapter of chapters" [preferredLanguageId]="preferredLanguageId" [chapter]="chapter" (chapterSelected)="onChapterSelection(chapter)"></app-chapter-item>
       <div class="form-inline float-left m-3">
         <select class="form-control" [value]="chaptersPerPage" (change)="changePageSize($event.target.value)">
           <option value="5">5 per page</option>
