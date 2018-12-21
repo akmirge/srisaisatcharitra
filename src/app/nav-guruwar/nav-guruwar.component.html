@@ -16,7 +16,7 @@
             <strong>{{language.name}}</strong>
           </label>
           <div *ngIf="preferredLanguage">
-            <a class="btn btn-outline-primary btn-lg m-2" (click)="showPreview = !showPreview">Preview</a>
+            <a class="btn btn-outline-primary btn-lg m-2" (click)="showPreview = true">Preview</a>
             <a target="_blank" [href]="preferredLanguage.url" class="btn btn-primary btn-lg m-2" download="Sai_Vrat_{{ preferredLanguage.name }}.pdf">Download
               Book in PDF</a>
           </div>
@@ -360,7 +360,7 @@
       <h5 class="mb-0">
         <button type="button" class="btn btn-link btn-lg" (click)="isAshtotharaCollapsed = !isAshtotharaCollapsed"
           [attr.aria-expanded]="!isAshtotharaCollapsed" aria-controls="ashtotharaCompletion">
-            శ్రీ సాయి అష్టోత్తర శతనామావళి:
+            శ్రీ సాయి బాబా అష్టోత్తర శతనామావళి:
         </button>
       </h5>
     </div>
