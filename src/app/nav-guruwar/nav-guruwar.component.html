@@ -1,0 +1,709 @@
+<div class="container-fluid" class="mt-2 text-center">
+  <h1 class="text-primary">Sri Sai Nav Guruwar Vrat</h1>
+  <div class="card mb-3" *ngIf="images">
+    <ngb-carousel [showNavigationIndicators]="true" [showNavigationArrows]="true">
+      <ng-template ngbSlide *ngFor="let image of images">
+        <img [src]="image.url" [alt]="image.alt" class="img-responsive" width="100%" height="500px">
+      </ng-template>
+    </ngb-carousel>
+    <div class="card-body">
+      <form #languageForm="ngForm">
+        <div class="form-group" *ngIf="languages">
+          <h2>Please select your language: </h2>
+          <label class="radio-inline" for="language_{{language.id}}" *ngFor="let language of languages">
+            <input class="m-2" id="language_{{language.id}}" type="radio" [value]="language" name="preferredLanguage"
+              [(ngModel)]="preferredLanguage" />
+            <strong>{{language.name}}</strong>
+          </label>
+          <div *ngIf="preferredLanguage">
+            <a class="btn btn-outline-primary btn-lg m-2" (click)="showPreview = !showPreview">Preview</a>
+            <a target="_blank" [href]="preferredLanguage.url" class="btn btn-primary btn-lg m-2" download="Sai_Vrat_{{ preferredLanguage.name }}.pdf">Download
+              Book in PDF</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="preferredLanguage && preferredLanguage.id === 1 && showPreview" class="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button type="button" class="btn btn-link btn-lg" (click)="isIntroCollapsed = !isIntroCollapsed"
+          [attr.aria-expanded]="!isIntroCollapsed" aria-controls="collapseIntro">
+          परिचय:
+        </button>
+      </h5>
+    </div>
+    <div id="collapseIntro" [ngbCollapse]="!isIntroCollapsed">
+      <div class="card">
+        <div class="card-body lead">
+          <strong>
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-primary">
+                श्री साईं बाबा व्रत के फलस्वरूप निम्नलिखित लाभ व फल प्राप्त हो सकते है: पुत्र की प्राप्ति, कार्य
+                सिद्धि, वर प्राप्ति, वधु प्राप्ति, खोया धन मिले, जमीन जायदात मिले, धन मिले, साईं दर्शन, मन की शान्ति,
+                शत्रु शांत होना, व्यापार में वृद्धि, बांझ को भी बच्चे की प्राप्ति हो, इच्छित वास्तु की प्राप्ति, पति का
+                खोया प्रेम मिले, परीक्षा में सफलता, यात्रा का योग, रोग निवारण, कार्य सिद्धि, सर्व मनोकामना पूर्ती,
+                इत्यादि|
+              </li>
+            </ul>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button type="button" class="btn btn-link btn-lg" (click)="isRulesCollapsed = !isRulesCollapsed"
+          [attr.aria-expanded]="!isRulesCollapsed" aria-controls="collapseRules">
+          व्रत के लिए नियम:
+        </button>
+      </h5>
+    </div>
+    <div id="collapseRules" [ngbCollapse]="!isRulesCollapsed">
+      <div class="card">
+        <div class="card-body lead">
+          <strong>
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-primary">साईं व्रत कोई भी कर सकतें हैं चाहे – स्त्री, पुरुष और
+                बच्चे|</li>
+              <li class="list-group-item list-group-item-default">यह व्रत किसी भी जाति – पाति के भेद भाव बिना कोई भी
+                व्यक्ति कर सकता है|</li>
+              <li class="list-group-item list-group-item-primary">यह व्रत बहुत ही चमत्कारी है| 1, 9, 11, अथवा 21 करने
+                से निश्चित ही इच्छुक फल प्राप्त होता है|</li>
+              <li class="list-group-item list-group-item-default">इस व्रत को श्री साईं बाबा जी का नाम लेकर किसी भी
+                गुरुवार से आरम्भ कर सकतें हैं| जिस कार्य के लिए व्रत किया गया हो उसके लिए श्री साईं बाबा जी से सच्चे
+                हरदे से प्राथना करनी चाहिए|</li>
+              <li class="list-group-item list-group-item-primary">किसी आसन पर पीला कपड़ा बिछाकर उस पर श्री साईं बाबा जी
+                की तस्वीर रखकर स्वच्छ जल से पोंछकर चन्दन या कुंकुम का तिलक लगाना चाहिए और उन पर पीला फूल या हार चढ़ाकर
+                प्रसाद में कोई भी फल या मिठाई बंटी जा सकती है|</li>
+              <li class="list-group-item list-group-item-default">यह व्रत फलाहार लेकर किया जा सकता है जैसे दूध, चाय,
+                फल, मिठाई आदि लेकर अथवा एक समय भोजक करके किया जा सकता है| बिल्कुल भूखे रहकर उपवास नहीं करना चाहिए|</li>
+              <li class="list-group-item list-group-item-primary">प्रत्यके गुरुवार हो सके तो साईं बाबा के मन्दिर जाकर
+                दर्शन करने चाहिए| साईं बाबा के मन्दिर ना जा सके तो श्रद्धापूर्वक घर में ही साईं बाबा की पूजा की जा सकती
+                है|</li>
+              <li class="list-group-item list-group-item-default">यदि किसी करणवश गुरुवार को कहीं जाना हो तो व्रत को
+                नियमनुसार सुचारू रखना चाहिए|</li>
+              <li class="list-group-item list-group-item-primary">यदि किसी कारणवश किसी गुरुवार व्रत ना कर पायें तो उस
+                गुरुवार को गिनती में ना लेते हए मन में किसी प्रकार की शंका ना रखते हुए, अगले गुरुवार से व्रत जारी रखें|
+                मन्नत माने हए गुरुवार पूरे कर व्रत का उध्यापर करें|</li>
+              <li class="list-group-item list-group-item-primary">एक बार मन्नत अनुसार व्रत पूर्ण करने के बाद फिर मन्नत
+                कर सकते हैं, और फिर व्रत कर सकते हैं|</li>
+            </ul>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button type="button" class="btn btn-link btn-lg" (click)="isCompletionCollapsed = !isCompletionCollapsed"
+          [attr.aria-expanded]="!isCompletionCollapsed" aria-controls="collapseCompletion">
+          व्रत का समापन:
+        </button>
+      </h5>
+    </div>
+    <div id="collapseCompletion" [ngbCollapse]="!isCompletionCollapsed">
+      <div class="card">
+        <div class="card-body lead">
+          <strong>
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-primary">9वे गुरूवार को उद्यापन करना चाहिए इसमें पांच गरीब को
+                भोजन किया जाए (भोजन अपनी यथाशक्ति देना या करवाना)|</li>
+              <li class="list-group-item list-group-item-default">साईं बाबा की महिमा एवं व्रत का फैलाव करने के लिए अपने
+                सगे-सम्बन्धी या पडोसियों को यह किताबे 5, 11, 21 अपनी यथाशक्ति भेट दी जाए इस तरह व्रत का उद्यापन किया
+                जाय|</li>
+              <li class="list-group-item list-group-item-primary">9वे गुरूवार को जो किताबे भेट देनी है उसका यथाशक्ति
+                पूजा में रखिए और बाद में ही भेट दी जाए जिससे आपकी एवं अन्य व्यक्तियों की भी मनोकामना पूर्ण हो उपरोक्त
+                विधि से व्रत करने से एवं विधिपूर्वक उद्यापन करने से निश्चित हो आपकी मनोकामना पूर्ण होगी ऐसा साईं भक्तो
+                का विश्वास है|</li>
+            </ul>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button type="button" class="btn btn-link btn-lg" (click)="isAshtotharaCollapsed = !isAshtotharaCollapsed"
+          [attr.aria-expanded]="!isAshtotharaCollapsed" aria-controls="ashtotharaCompletion">
+            श्री साईं बाबा अशोत्ट्टारा सता नमवली:
+        </button>
+      </h5>
+    </div>
+    <div id="ashtotharaCompletion" [ngbCollapse]="!isAshtotharaCollapsed">
+      <div class="card">
+        <div class="card-body lead">
+          <strong>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-primary">ॐ सायिनाथाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ लक्ष्मी नारायणाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ श्री रामकृष्ण मारुत्यादि रूपाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ शेषशायिने नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ गोदावरीतट शिरडी वासिने नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ भक्त हृदालयाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सर्वहृद्वासिने नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ भूतावासाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ भूत भविष्यद्भाववर्जताय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ कालाती ताय नमः</li> ॥ 10 ॥
+                <li class="list-group-item list-group-item-primary">ॐ कालाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ कालकालाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ काल दर्पदमनाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ मृत्युञ्जयाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ अमर्त्याय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ मर्त्याभय प्रदाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ जीवाधाराय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सर्वाधाराय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ भक्ता वन समर्थाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ भक्तावन प्रतिज्ञाय नमः</li> ॥ 20 ॥
+                <li class="list-group-item list-group-item-primary">ॐ अन्नवस्त्रदाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ आरोग्यक्षेमदाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ धन माङ्गल्यदाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ बुद्धी सिद्धी दाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ पुत्र मित्र कलत्र बन्धुदाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ योगक्षेम मवहाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ आपद्भान्धवाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ मार्ग बन्धवे नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ भुक्ति मुक्ति सर्वापवर्गदाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ प्रियाय नमः</li> ॥ 30 ॥
+                <li class="list-group-item list-group-item-primary">ॐ प्रीतिवर्द नाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ अन्तर्यानाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ सच्चिदात्मने नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ आनन्द दाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ आनन्ददाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ परमेश्वराय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ ज्ञान स्वरूपिणे नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ जगतः पित्रे नमः</li> ॥ 40 ॥
+                <li class="list-group-item list-group-item-primary">ॐ भक्ता नां मातृ दातृ पितामहाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ भक्ता भयप्रदाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ भक्त पराधी नाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ भक्तानुग्र हकातराय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ शरणागत वत्सलाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ भक्ति शक्ति प्रदाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ ज्ञान वैराग्यदाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ प्रेमप्रदाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ संशय हृदय दौर्भल्य पापकर्मवासनाक्षयक राय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ हृदय ग्रन्धभेद काय नमः</li> ॥ 50 ॥
+                <li class="list-group-item list-group-item-primary">ॐ कर्म ध्वंसिने नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ शुद्धसत्व स्धिताय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ गुणाती तगुणात्मने नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ अनन्त कल्याणगुणाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ अमित पराक्र माय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ जयिने नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ जयिने नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ दुर्दर्षा क्षोभ्याय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ अपराजिताय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ त्रिलोकेसु अविघातगतये नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ अशक्यर हिताय नमः</li> ॥ 60 ॥
+                <li class="list-group-item list-group-item-primary">ॐ सर्वशक्ति मूर्त यै नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सुरूपसुन्दराय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सुलोचनाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ महारूप विश्वमूर्तये नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ अरूपव्यक्ताय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ चिन्त्याय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सूक्ष्माय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सर्वान्त र्यामिने नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ मनो वागतीताय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ प्रेम मूर्तये नमः</li> ॥ 70 ॥
+                <li class="list-group-item list-group-item-primary">ॐ सुलभ दुर्ल भाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ असहाय सहायाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ अनाध नाधये नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ सर्वभार भ्रते नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ अकर्माने ककर्मानु कर्मिणे नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ पुण्य श्रवण कीर्त नाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ तीर्धाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ वासुदेवाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सताङ्ग तये नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सत्परायणाय नमः</li> ॥ 80 ॥
+                <li class="list-group-item list-group-item-primary">ॐ लोकनाधाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ पाव नान घाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ अमृतांशुवे नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ भास्कर प्रभाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ ब्रह्मचर्यतश्चर्यादि सुव्रताय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सत्यधर्मपरायणाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सिद्देश्वराय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सिद्द सङ्कल्पाय नमः</li> 
+                <li class="list-group-item list-group-item-primary">ॐ योगेश्वराय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ भगवते नमः</li> ॥ 90 ॥
+                <li class="list-group-item list-group-item-primary">ॐ भक्तावश्याय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सत्पुरुषाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ पुरुषोत्तमाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सत्यतत्त्वबोध काय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ कामादिष डैवर ध्वंसिने नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ अभे दानन्दानुभव प्रदाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सर्वमत सम्मताय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ श्रीदक्षिणामूर्तये नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ श्री वेङ्कटेश्वर मणाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ अद्भुतानन्द चर्याय नमः</li> ॥ 100 ॥
+                <li class="list-group-item list-group-item-primary">ॐ प्रपन्नार्ति हरय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ संसार सर्व दु:खक्षयकार काय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सर्व वित्सर्वतोमुखाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सर्वान्तर्भ हिस्थितय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सर्वमङ्गल कराय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सर्वाभीष्ट प्रदाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ समर सन्मार्ग स्थापनाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ सच्चिदानन्द स्वरूपाय नमः</li>
+                <li class="list-group-item list-group-item-primary">ॐ श्री समर्थ सद्गुरु सायिनाथाय नमः</li> ॥ 108 ॥
+            </ul>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="preferredLanguage && preferredLanguage.id === 2 && showPreview" class="accordion">
+  <div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button type="button" class="btn btn-link btn-lg" (click)="isIntroCollapsed = !isIntroCollapsed"
+          [attr.aria-expanded]="!isIntroCollapsed" aria-controls="collapseIntro">
+          పరిచయం:
+        </button>
+      </h5>
+    </div>
+    <div id="collapseIntro" [ngbCollapse]="!isIntroCollapsed">
+      <div class="card">
+        <div class="card-body lead">
+          <strong>
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-primary">
+                ఏ భక్తుడైతే తన సంపూర్ణ విశ్వాసంతో సాయిబాబా పాదపద్మములందు శరణాగతుడై ఈ నవగురువారముల శ్రీ సాయి వ్రతమును
+                ఆచరించునో అతని యొక్క సర్వ ప్రార్ధనలు, కోరికలు నిశ్చయముగా ఫలించునదే కాకా సకల విఘ్నములూ నివారించబడును.
+              </li>
+            </ul>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingSix">
+      <h5 class="mb-0">
+        <button type="button" class="btn btn-link btn-lg" (click)="isRulesCollapsed = !isRulesCollapsed"
+          [attr.aria-expanded]="!isRulesCollapsed" aria-controls="collapseRules">
+          నవగురువార సాయిబాబా వ్రత ఆచరణ నియమాలు:
+        </button>
+      </h5>
+    </div>
+    <div id="collapseRules" [ngbCollapse]="!isRulesCollapsed">
+      <div class="card">
+        <div class="card-body lead">
+          <strong>
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-primary">ఏ భక్తుడైన స్త్రీ పురుష వయస్సు భేదము లేకుండా ఈ
+                వ్రతమును ఆచరించవచ్చును.</li>
+              <li class="list-group-item list-group-item-primary">ఏ కులము వారైన సరే, ఏ మతము వారైనా సరే ఈ వ్రతమును
+                ఆచరించవచ్చును.</li>
+              <li class="list-group-item list-group-item-primary">ఈ వ్రతమును సంపూర్ణ ఆత్మవిశాసంతో మరియు అత్యంత
+                భక్తితోనూ ఆచరించినచో మహాత్వపూరితమైన ఫలము ప్రాప్తించును.</li>
+              <li class="list-group-item list-group-item-default">ప్రార్థనలు ఫలించాలంటే, కోర్కెలు తీరాలంటే భక్తి
+                పూరితముగా సాయిభగవానుని ప్రార్థించి గురువారం రోజున ఈ వ్రతమును ప్రారంభిచాలి.</li>
+              <li class="list-group-item list-group-item-primary">ఉదయమైనను, సాయంత్ర సమయమైనను ఈ పూజను ఆచరించవచ్చును.
+                ఒక పలకను సింహసనముగా అమర్చి ఒక వస్త్రమును దానిపై పఱచి దానిపై సాయినాథుని పటమును గాని విగ్రహముగా గాని
+                ప్రతిష్ఠించి సాయినాథుని శిరసుపై చందనం మరియు కుంకుమ తిలకం దిద్దాలి. పూలమాలను గాని పసుపు రంగు పుష్పములను
+                గాని సాయినాథునికి సమర్పించాలి. దీప స్తంభంలోసాయిజ్యోతిని వెలిగించి సాంబ్రాణి, అగరు దూపములను సమర్పించి
+                సాయిబాబా వ్రతగాథను భక్తితో(అధ్యయనం చేయాలి) చదువాలి, ధ్యానంచేస్తూ సాయిబాబాను ప్రార్థించాలి.
+                హృదయపూర్వకంగా ప్రార్థనలను, భక్తితో కోర్కెలకు విన్నవించుకోవాలి. తరువాత సాయినాథునికి నైవేద్యమును
+                సమర్పించాలి. పవిత్ర ఆహార రూపంలోనున్న చక్కరగాని, మిఠాయిగాని, పలములు గాని నైవేద్యముగా సమర్పించాలి.
+                వ్రతంలో కూర్చున్న వారికి పవిత్ర ప్రసాదమును సమంగా పంచి భుజించాలి.</li>
+              <li class="list-group-item list-group-item-default">పాలుగాని, కాఫీగాని, టీగాని లేకా మిఠాయిలను గాని
+                ఫలములను గాని ఆహారముగా సేవించో లేక వ్రతమును ఆచరించు భక్తుడు ఒకే పూట (మధ్యాహ్నం /రాత్రి) ఆహారం సేవించి
+                వ్రతమును ఆచరించాలి. పూర్తిగా ఉపవాసం ఉండి గాని లేకా ఆకలి కడుపుతో గాని ఈ వ్రతం ఆచరింపరాదు.</li>
+              <li class="list-group-item list-group-item-primary">వీలైనచో 9 గురువారములు సాయి మందిరమునకు వెళ్లి
+                ప్రార్ధించాలి. సాయిబాబా మందిరం దగ్గరలో లేని పక్షంలో గృహంలోనే అత్యంత భక్తితో పూజను ఆచరించాలి.</li>
+              <li class="list-group-item list-group-item-default">భక్తులు వేరే గ్రామానికి వెళ్ళిన ఆ వ్రతమును
+                కొనసాగించవచ్చును.</li>
+              <li class="list-group-item list-group-item-primary">ఈ తొమ్మిది గురువారంలు స్త్రీలు మైలపడితే లేకా ఏదో
+                కారణం చేత గాని పూజను ఆచరించనిచో ఆ గురువారం వదిలివేయవచ్చును. ఈ వదిలివేయబడిన గురువారం లెక్కించరాదు. మరియు
+                రాబోవు గురువారం ఈ పూజను ఆచరించి 9 గురువారంలు పూర్తిచేయాలి.</li>
+            </ul>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingSeven">
+      <h5 class="mb-0">
+        <button type="button" class="btn btn-link btn-lg" (click)="isCompletionCollapsed = !isCompletionCollapsed"
+          [attr.aria-expanded]="!isCompletionCollapsed" aria-controls="collapseCompletion">
+          ఊద్యావన నియమాలు:
+        </button>
+      </h5>
+    </div>
+    <div id="collapseCompletion" [ngbCollapse]="!isCompletionCollapsed">
+      <div class="card">
+        <div class="card-body lead">
+          <strong>
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-primary">వ్రతము యధావిధిగ చేసి 9 వ గురువారంతో పూర్తి చెయ్యాలి.</li>
+              <li class="list-group-item list-group-item-default">తొమ్మిదవ గురువారం 5 మంది బీదలకు అన్నదానం
+                చెయ్యాలి(భక్తుని స్తోమతను బట్టి)
+                ఈ వ్రతము యొక్క శక్తిని ప్రజలకు తెలియజేయడానికి సాయిబాబా వ్రతం పుస్తకములను (5లేక11లేక21) ఉచితంగా
+                పంచిపెట్టాలి తొమ్మిదో గురువారం ఈ పుస్తకములను పూజ గృహమునందుంచి పూజించి ఇతరులకు పంచితే ,పుస్తకం
+                ప్రసాదముగా అందుకొనే వారికి దైవానుగ్రహం లభించును.</li>
+              <li class="list-group-item list-group-item-primary">పైన చెప్పిన నియమాలతో ఈ వ్రతమును ఆచరించి ఈ దానములు
+                గావించినచో సాయిబాబా కృపతో భక్తుని యొక్క కోర్కెలు, ప్రార్థనలు నెరవేరును.</li>
+            </ul>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingEight">
+      <h5 class="mb-0">
+        <button type="button" class="btn btn-link btn-lg" (click)="isAshtotharaCollapsed = !isAshtotharaCollapsed"
+          [attr.aria-expanded]="!isAshtotharaCollapsed" aria-controls="ashtotharaCompletion">
+            శ్రీ సాయి అష్టోత్తర శతనామావళి:
+        </button>
+      </h5>
+    </div>
+    <div id="ashtotharaCompletion" [ngbCollapse]="!isAshtotharaCollapsed">
+      <div class="card">
+        <div class="card-body lead">
+          <strong>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-primary">ఓం సాయినాథాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం లక్ష్మీ నారాయణాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం శ్రీ రామకృష్ణ మారుత్యాది రూపాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం శేషశాయినే నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం గోదావరీతట శిరడీ వాసినే నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం భక్త హృదాలయాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సర్వహృద్వాసినే నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం భూతావాసాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం భూత భవిష్యద్భావవర్జతాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం కాలాతీ తాయ నమః</li> || 10 ||
+                <li class="list-group-item list-group-item-primary">ఓం కాలాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం కాలకాలాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం కాల దర్పదమనాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం మృత్యుంజయాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం అమర్త్యాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం మర్త్యాభయ ప్రదాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం జీవాధారాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సర్వాధారాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం భక్తా వన సమర్థాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం భక్తావన ప్రతిఙ్ఞాయ నమః</li> || 20 ||
+                <li class="list-group-item list-group-item-primary">ఓం అన్నవస్త్రదాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం ఆరోగ్యక్షేమదాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం ధన మాంగల్యదాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం బుద్ధీ సిద్ధీ దాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం పుత్ర మిత్ర కళత్ర బంధుదాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం యోగక్షేమ మవహాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం ఆపద్భాంధవాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం మార్గ బంధవే నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం భుక్తి ముక్తి సర్వాపవర్గదాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం ప్రియాయ నమః</li> || 30 ||
+                <li class="list-group-item list-group-item-primary">ఓం ప్రీతివర్ద నాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం అంతర్యానాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం సచ్చిదాత్మనే నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం ఆనంద దాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం ఆనందదాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం పరమేశ్వరాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం ఙ్ఞాన స్వరూపిణే నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం జగతః పిత్రే నమః</li> || 40 ||
+                <li class="list-group-item list-group-item-primary">ఓం భక్తా నాం మాతృ దాతృ పితామహాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం భక్తా భయప్రదాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం భక్త పరాధీ నాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం భక్తానుగ్ర హకాతరాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం శరణాగత వత్సలాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం భక్తి శక్తి ప్రదాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం ఙ్ఞాన వైరాగ్యదాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం ప్రేమప్రదాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం సంశయ హృదయ దౌర్భల్య పాపకర్మవాసనాక్షయక రాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం హృదయ గ్రంధభేద కాయ నమః</li> || 50 ||
+                <li class="list-group-item list-group-item-primary">ఓం కర్మ ధ్వంసినే నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం శుద్ధసత్వ స్ధితాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం గుణాతీ తగుణాత్మనే నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం అనంత కళ్యాణగుణాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం అమిత పరాక్ర మాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం జయినే నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం జయినే నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం దుర్దర్షా క్షోభ్యాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం అపరాజితాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం త్రిలోకేసు అవిఘాతగతయే నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం అశక్యర హితాయ నమః</li> || 60 ||
+                <li class="list-group-item list-group-item-primary">ఓం సర్వశక్తి మూర్త యై నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సురూపసుందరాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సులోచనాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం మహారూప విశ్వమూర్తయే నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం అరూపవ్యక్తాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం చింత్యాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సూక్ష్మాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సర్వాంత ర్యామినే నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం మనో వాగతీతాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం ప్రేమ మూర్తయే నమః</li> || 70 ||
+                <li class="list-group-item list-group-item-primary">ఓం సులభ దుర్ల భాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం అసహాయ సహాయాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం అనాధ నాధయే నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం సర్వభార భ్రతే నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం అకర్మానే కకర్మాను కర్మిణే నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం పుణ్య శ్రవణ కీర్త నాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం తీర్ధాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం వాసుదేవాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సతాంగ తయే నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సత్పరాయణాయ నమః</li> || 80 ||
+                <li class="list-group-item list-group-item-primary">ఓం లోకనాధాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం పావ నాన ఘాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం అమృతాంశువే నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం భాస్కర ప్రభాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం బ్రహ్మచర్యతశ్చర్యాది సువ్రతాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సత్యధర్మపరాయణాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సిద్దేశ్వరాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సిద్ద సంకల్పాయ నమః</li> 
+                <li class="list-group-item list-group-item-primary">ఓం యోగేశ్వరాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం భగవతే నమః</li> || 90 ||
+                <li class="list-group-item list-group-item-primary">ఓం భక్తావశ్యాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సత్పురుషాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం పురుషోత్తమాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సత్యతత్త్వబోధ కాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం కామాదిష డైవర ధ్వంసినే నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం అభే దానందానుభవ ప్రదాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సర్వమత సమ్మతాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం శ్రీదక్షిణామూర్తయే నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం శ్రీ వేంకటేశ్వర మణాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం అద్భుతానంద చర్యాయ నమః</li> || 100 ||
+                <li class="list-group-item list-group-item-primary">ఓం ప్రపన్నార్తి హరయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సంసార సర్వ దు:ఖక్షయకార కాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సర్వ విత్సర్వతోముఖాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సర్వాంతర్భ హిస్థితయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సర్వమంగళ కరాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సర్వాభీష్ట ప్రదాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సమర సన్మార్గ స్థాపనాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం సచ్చిదానంద స్వరూపాయ నమః</li>
+                <li class="list-group-item list-group-item-primary">ఓం శ్రీ సమర్థ సద్గురు సాయినాథాయ నమః</li> || 108 ||
+            </ul>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="preferredLanguage && preferredLanguage.id === 3 && showPreview" class="accordion">
+  <div class="card">
+    <div class="card-header" id="headingNine">
+      <h5 class="mb-0">
+        <button type="button" class="btn btn-link btn-lg" (click)="isIntroCollapsed = !isIntroCollapsed"
+          [attr.aria-expanded]="!isIntroCollapsed" aria-controls="collapseIntro">
+          Introduction:
+        </button>
+      </h5>
+    </div>
+    <div id="collapseIntro" [ngbCollapse]="!isIntroCollapsed">
+      <div class="card">
+        <div class="card-body lead">
+          <strong>
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-primary">
+                If a devotee places his/her faith in Shirdi Sai Baba’s holy feet and observe this 9 Thursday’s vrat,
+                all his desires and wishes will be amazingly fulfilled.
+              </li>
+            </ul>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTen">
+      <h5 class="mb-0">
+        <button type="button" class="btn btn-link btn-lg" (click)="isRulesCollapsed = !isRulesCollapsed"
+          [attr.aria-expanded]="!isRulesCollapsed" aria-controls="collapseRules">
+          Rules for observing the Vrat:
+        </button>
+      </h5>
+    </div>
+    <div id="collapseRules" [ngbCollapse]="!isRulesCollapsed">
+      <div class="card">
+        <div class="card-body lead">
+          <strong>
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-primary">The vrat can be observed by any one (Men/Women/Kids).</li>
+              <li class="list-group-item list-group-item-default">The vrat can be observed by persons of any
+                caste/religion.</li>
+              <li class="list-group-item list-group-item-primary">Sincere faith and devotion while observing this vrat
+                yields miraculous results.</li>
+              <li class="list-group-item list-group-item-default">The vrat should be started on Thursday with a sincere
+                prayer to Shirdi Sai baba to get the desire and wish fulfilled.</li>
+              <li class="list-group-item list-group-item-primary">Pooja can be performed in morning or evening. Place a
+                wooden board and spread a small yellow cloth on it and keep Shirdi Sai Baba’s photo on it. Wipe the
+                photo with clean cloth and apply sandal paste and kum-kum tilak on Sai’s forehead. Offer him a garland
+                or yellow colour flower. Light a lamp and incense sticks in front of Baba and read SAI VRAT story.
+                Meditate and pray to him faithfully. Offer him food (sugar, candy, sweets and fruits) and distribute
+                the Prasad.</li>
+              <li class="list-group-item list-group-item-default">During vrat, take fruits, liquids and sweets or take
+                food one time in a day (lunch/dinner). This vrat should not be observed with empty stomach and
+                remaining hungry.</li>
+              <li class="list-group-item list-group-item-primary">Visit Shirdi Sai Baba temple on all 9 Thursdays. If
+                the temple is not nearby, then pooja can be done in the house sincerely.</li>
+              <li class="list-group-item list-group-item-default">Devotees can perform this puja even when are
+                travelling to other cities.</li>
+              <li class="list-group-item list-group-item-primary">If ladies have monthly issues, skip that Thursday and
+                perform puja in the consecutive Thursday.</li>
+            </ul>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingEleven">
+      <h5 class="mb-0">
+        <button type="button" class="btn btn-link btn-lg" (click)="isCompletionCollapsed = !isCompletionCollapsed"
+          [attr.aria-expanded]="!isCompletionCollapsed" aria-controls="collapseCompletion">
+          Completion of Vrat:
+        </button>
+      </h5>
+    </div>
+    <div id="collapseCompletion" [ngbCollapse]="!isCompletionCollapsed">
+      <div class="card">
+        <div class="card-body lead">
+          <strong>
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-primary">On the 9th Thursday, feed 5 poor people according to
+                capacity.</li>
+              <li class="list-group-item list-group-item-default">To spread the efficacies of this vrat, distribute
+                SaiBaba vrat books to 5 or 11 or more, freely.</li>
+              <li class="list-group-item list-group-item-primary">On 9th thrusday, place these books in puja so that
+                receivers will also be blessed.</li>
+            </ul>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwelve">
+      <h5 class="mb-0">
+        <button type="button" class="btn btn-link btn-lg" (click)="isAshtotharaCollapsed = !isAshtotharaCollapsed"
+          [attr.aria-expanded]="!isAshtotharaCollapsed" aria-controls="ashtotharaCompletion">
+            Shri Sai Baba Ashtottara Sata Namavali:
+        </button>
+      </h5>
+    </div>
+    <div id="ashtotharaCompletion" [ngbCollapse]="!isAshtotharaCollapsed">
+      <div class="card">
+        <div class="card-body lead">
+          <strong>
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-primary">oṃ sāyināthāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ lakṣmī nārāyaṇāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ śrī rāmakṛṣṇa mārutyādi rūpāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ śeṣaśāyine namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ godāvarītaṭa śiraḍī vāsine namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ bhakta hṛdālayāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ sarvahṛdvāsine namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ bhūtāvāsāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ bhūta bhaviṣyadbhāvavarjatāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ kālātī tāya namaḥ</li> || 10 ||
+              <li class="list-group-item list-group-item-primary">oṃ kālāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ kālakālāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ kāla darpadamanāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ mṛtyuñjayāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ amartyāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ martyābhaya pradāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ jīvādhārāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ sarvādhārāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ bhaktā vana samarthāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ bhaktāvana pratiṅñāya namaḥ</li> || 20 ||
+              <li class="list-group-item list-group-item-primary">oṃ annavastradāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ ārogyakṣemadāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ dhana māṅgalyadāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ buddhī siddhī dāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ putra mitra kaḷatra bandhudāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ yogakṣema mavahāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ āpadbhāndhavāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ mārga bandhave namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ bhukti mukti sarvāpavargadāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ priyāya namaḥ</li> || 30 ||
+              <li class="list-group-item list-group-item-primary">oṃ prītivarda nāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ antaryānāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ saccidātmane namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ ānanda dāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ ānandadāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ parameśvarāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ ṅñāna svarūpiṇe namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ jagataḥ pitre namaḥ</li> || 40 ||
+              <li class="list-group-item list-group-item-primary">oṃ bhaktā nāṃ mātṛ dātṛ pitāmahāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ bhaktā bhayapradāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ bhakta parādhī nāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ bhaktānugra hakātarāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ śaraṇāgata vatsalāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ bhakti śakti pradāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ ṅñāna vairāgyadāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ premapradāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ saṃśaya hṛdaya daurbhalya pāpakarmavāsanākṣayaka rāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ hṛdaya grandhabheda kāya namaḥ</li> || 50 ||
+              <li class="list-group-item list-group-item-primary">oṃ karma dhvaṃsine namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ śuddhasatva sdhitāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ guṇātī taguṇātmane namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ ananta kaḷyāṇaguṇāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ amita parākra māya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ jayine namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ jayine namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ durdarṣā kṣobhyāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ aparājitāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ trilokesu avighātagataye namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ aśakyara hitāya namaḥ</li> || 60 ||
+              <li class="list-group-item list-group-item-primary">oṃ sarvaśakti mūrta yai namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ surūpasundarāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ sulocanāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ mahārūpa viśvamūrtaye namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ arūpavyaktāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ cintyāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ sūkṣmāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ sarvānta ryāmine namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ mano vāgatītāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ prema mūrtaye namaḥ</li> || 70 ||
+              <li class="list-group-item list-group-item-primary">oṃ sulabha durla bhāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ asahāya sahāyāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ anādha nādhaye namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ sarvabhāra bhrate namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ akarmāne kakarmānu karmiṇe namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ puṇya śravaṇa kīrta nāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ tīrdhāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ vāsudevāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ satāṅga taye namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ satparāyaṇāya namaḥ</li> || 80 ||
+              <li class="list-group-item list-group-item-primary">oṃ lokanādhāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ pāva nāna ghāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ amṛtāṃśuve namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ bhāskara prabhāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ brahmacaryataścaryādi suvratāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ satyadharmaparāyaṇāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ siddeśvarāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ sidda saṅkalpāya namaḥ</li> 
+              <li class="list-group-item list-group-item-primary">oṃ yogeśvarāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ bhagavate namaḥ</li> || 90 ||
+              <li class="list-group-item list-group-item-primary">oṃ bhaktāvaśyāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ satpuruṣāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ puruṣottamāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ satyatattvabodha kāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ kāmādiṣa ḍaivara dhvaṃsine namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ abhe dānandānubhava pradāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ sarvamata sammatāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ śrīdakṣiṇāmūrtaye namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ śrī veṅkaṭeśvara maṇāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ adbhutānanda caryāya namaḥ</li> || 100 ||
+              <li class="list-group-item list-group-item-primary">oṃ prapannārti haraya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ saṃsāra sarva du:khakṣayakāra kāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ sarva vitsarvatomukhāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ sarvāntarbha histhitaya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ sarvamaṅgaḷa karāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ sarvābhīṣṭa pradāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ samara sanmārga sthāpanāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ saccidānanda svarūpāya namaḥ</li>
+              <li class="list-group-item list-group-item-primary">oṃ śrī samartha sadguru sāyināthāya namaḥ</li> || 108 ||
+            </ul>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

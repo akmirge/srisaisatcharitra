@@ -18,6 +18,8 @@ import { MessageModule } from './messages/message.module';
 import { ExternalUrlDirective } from './external-url.directive';
 import { NotFoundComponent } from './not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavGuruwarComponent } from './nav-guruwar/nav-guruwar.component';
+import { ShriRamComponent } from './shri-ram/shri-ram.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     ChapterDetailComponent,
     ChapterItemComponent,
     NotFoundComponent,
-    ExternalUrlDirective
+    ExternalUrlDirective,
+    NavGuruwarComponent,
+    ShriRamComponent
   ],
   imports: [
     HttpClientModule,
