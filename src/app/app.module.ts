@@ -20,6 +20,7 @@ import { NotFoundComponent } from './not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavGuruwarComponent } from './nav-guruwar/nav-guruwar.component';
 import { ShriRamComponent } from './shri-ram/shri-ram.component';
+import { SpiritualBooksComponent } from './spiritual-books/spiritual-books.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ShriRamComponent } from './shri-ram/shri-ram.component';
     NotFoundComponent,
     ExternalUrlDirective,
     NavGuruwarComponent,
-    ShriRamComponent
+    ShriRamComponent,
+    SpiritualBooksComponent
   ],
   imports: [
     HttpClientModule,
