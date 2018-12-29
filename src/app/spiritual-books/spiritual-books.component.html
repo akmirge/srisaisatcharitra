@@ -1,57 +1,60 @@
 <div class="container-fluid mt-2">
   <div class="col-md-12">
-      <ngb-tabset type="pills" [justify]="'fill'" [orientation]="'horizontal'">
-          <ngb-tab title="English">
-            <ng-template ngbTabContent>
-                <div class="row mt-2 ml-0">
-                    <div class="card mr-2 mb-2" *ngFor="let book of englishBooks" style="width: 15rem;">
-                      <img [src]="book.imageUrl" class="card-img-top" [alt]="book.alt">
-                      <div class="card-body">
-                        <h5 class="card-title">{{book.title}}</h5>
-                        <p class="card-text">{{book.description}}</p>
-                      </div>
-                      <div class="card-footer bg-transparent border-primary">
-                          <a target="_blank" [href]="book.pdfUrl" class="btn btn-outline-primary btn-lg m-2">Preview</a>
-                          <a target="_blank" [href]="book.pdfUrl" class="btn btn-primary btn-lg m-2" download="{{ book.title }}.pdf">Download in PDF</a>
-                      </div>
-                    </div>
+    <ngb-tabset type="pills" [justify]="'fill'" [orientation]="'horizontal'">
+      <ngb-tab title="Books">
+        <ng-template ngbTabContent>
+          <div class="container-fluid" class="mt-2 text-center">
+            <h1>Language Preference:</h1>
+            <form #languageForm="ngForm">
+              <div class="form-group">
+                <label for="language">
+                  <h2>Please select your language: </h2>
+                </label>
+                <select class="form-control-lg ml-2" id="language" required name="language" [(ngModel)]="preferredLanguageId"
+                  #language="ngModel">
+                  <option [ngValue]="null">Please Select</option>
+                  <option *ngFor="let language of languages" [ngValue]="language.id">{{language.name}}</option>
+                </select>
+                <div [hidden]="language.valid || language.pristine" class="alert alert-danger">
+                  Language is required
                 </div>
-            </ng-template>
-          </ngb-tab>
-          <ngb-tab title="Hindi">
-            <ng-template ngbTabContent>
-                <div class="row mt-2 ml-0">
-                    <div class="card mr-2 mb-2" *ngFor="let book of hindiBooks" style="width: 15rem;">
-                      <img [src]="book.imageUrl" class="card-img-top" [alt]="book.alt">
-                      <div class="card-body">
-                        <h5 class="card-title"><strong>{{book.title}}</strong></h5>
-                        <div class="card-text">{{book.description}}</div>
-                      </div>
-                      <div class="card-footer bg-transparent border-primary">
-                          <a target="_blank" [href]="book.pdfUrl" class="btn btn-outline-primary btn-lg m-2">Preview</a>
-                          <a target="_blank" [href]="book.pdfUrl" class="btn btn-primary btn-lg m-2" download="{{ book.title }}.pdf">Download in PDF</a>
-                      </div>
-                    </div>
+              </div>
+            </form>
+          </div>
+          <div class="row mt-2 ml-0">
+            <div class="card mr-2 mb-2" *ngFor="let book of books" style="width: 15rem;">
+              <img [src]="book.imageUrl" class="card-img-top" [alt]="book.alt">
+              <div class="card-body">
+                <h5 class="card-title">{{book.title}}</h5>
+                <p class="card-text">{{book.description}}</p>
+              </div>
+              <div class="card-footer bg-transparent border-primary">
+                <a target="_blank" [href]="book.pdfUrl" class="btn btn-outline-primary btn-lg m-2">Preview</a>
+                <a target="_blank" [href]="book.pdfUrl" class="btn btn-primary btn-lg m-2" download="{{ book.title }}.pdf">Download
+                  in PDF</a>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Songs">
+        <ng-template ngbTabContent>
+          <div class="row mt-2 ml-0">
+            <div class="card mr-auto mb-2" *ngFor="let aarti of saibabaAartis" style="width: 25rem;">
+                <img [src]="aarti.imageUrl" class="card-img-top" [alt]="aarti.alt">
+                <div class="card-body">
+                    <h5 class="card-title">{{aarti.title}}</h5>
+                    <p class="card-text">{{aarti.description}}</p>
                 </div>
-            </ng-template>
-          </ngb-tab>
-          <ngb-tab title="Telugu">
-            <ng-template ngbTabContent>
-                <div class="row mt-2 ml-0">
-                    <div class="card mr-2 mb-2" *ngFor="let book of teluguBooks" style="width: 15rem;">
-                      <img [src]="book.imageUrl" class="card-img-top" [alt]="book.alt">
-                      <div class="card-body">
-                        <h5 class="card-title"><strong>{{book.title}}</strong></h5>
-                        <p class="card-text">{{book.description}}</p>
-                      </div>
-                      <div class="card-footer bg-transparent border-primary">
-                          <a target="_blank" [href]="book.pdfUrl" class="btn btn-outline-primary btn-lg m-2">Preview</a>
-                          <a target="_blank" [href]="book.pdfUrl" class="btn btn-primary btn-lg m-2" download="{{ book.title }}.pdf">Download in PDF</a>
-                      </div>
-                    </div>
+                <div class="card-footer bg-transparent border-primary">
+                  <audio [src]="aarti.audioUrl" controls>
+                    <p>If you are reading this, it is because your browser does not support the audio element.</p>
+                  </audio>
                 </div>
-            </ng-template>
-          </ngb-tab>
-        </ngb-tabset>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
   </div>
 </div>

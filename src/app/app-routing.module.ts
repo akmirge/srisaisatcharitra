@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'navguruwar', component: NavGuruwarComponent},
   {path: 'shriram', component: ShriRamComponent},
-  {path: 'spiritualbooks', component: SpiritualBooksComponent},
+  {path: 'spiritualresources', component: SpiritualBooksComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'externalRedirect', canActivate: [externalUrlProvider], component: NotFoundComponent},
   {path: '**', redirectTo: ''}
