@@ -17,22 +17,28 @@ export class HomeComponent implements OnInit {
   public audio = new Audio();
   constructor(private httpService: HttpClient) { }
 
-  ngOnInit(): void  {
+  ngOnInit(): void {
+    this.playAudio();
     this.preferredLanguageId = null;
     this.httpService.get(this._url).subscribe(
       data => {
         this.languages = data['languages'];
         this.images = data['homeImages'];
-      }
-    );
-    this.playAudio();
+      });
   }
 
   public playAudio() {
     this.audio.src = '../../assets/songs/sai_baba_vibhuti.mp3';
     this.audio.load();
-    // this.audio.loop = true;
-    this.audio.play();
+    const playPromise = this.audio.play();
+    if (playPromise !== undefined) {
+      playPromise.then(success => {
+        console.log('Video playback started');
+      })
+      .catch(error => {
+        console.log('Video playback failed');
+      });
+    }
   }
 
   public pauseAudio() {
@@ -40,8 +46,4 @@ export class HomeComponent implements OnInit {
       this.audio.pause();
     }
   }
-  // public stopAudio() {
-  //   this.audio.pause();
-  //   this.audio.currentTime = 0;
-  // }
 }

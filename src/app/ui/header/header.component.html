@@ -1,26 +1,31 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a href="/" class="navbar-brand">Sri Sai Satcharitras</a>
-  <div class="navbar-expand mr-auto">
-    <div class="navbar-nav">
-      <a routerLink="/about" class="nav-item nav-link" routerLinkActive="active">About</a>
-      <a routerLink="/navguruwar" class="nav-item nav-link" routerLinkActive="active">Nav Guruwar</a> 
-      <a routerLink="/shriram" class="nav-item nav-link" routerLinkActive="active">Shri Ram</a>
-      <a routerLink="/spiritualresources" class="nav-item nav-link" routerLinkActive="active">Spiritual Resources</a>
-      <a routerLink="/contact" class="nav-item nav-link" routerLinkActive="active">Contact</a>
-    </div>
+  <button class="navbar-toggler" type="button" (click)="toggleNavBar()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" [ngClass]="{'show': navBarOpen}" id="navbarSupportedContent"> 
+    <ul class="navbar-nav mr-auto lead">
+      <li class="nav-item">
+        <a routerLink="/about" class="nav-link" routerLinkActive="active">About</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/navguruwar" class="nav-item nav-link" routerLinkActive="active">Nav Guruwar</a> 
+      </li>
+      <li class="nav-item">
+        <a routerLink="/shriram" class="nav-item nav-link" routerLinkActive="active">Shri Ram</a>
+      </li>
+      <li class="nav-item">
+          <a routerLink="/spiritualresources" class="nav-item nav-link" routerLinkActive="active">Spiritual Resources</a>
+      </li>
+      <li class="nav-item">
+          <a routerLink="/contact" class="nav-item nav-link" routerLinkActive="active">Contact</a> 
+      </li>
+    </ul>
   </div>  
-
-  <div class="navbar-expand ml-auto navbar-nav">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="https://github.com/anilkmirge" target="_blank">
-          <i class="fa fa-github"></i>
-        </a>
-        <a class="nav-item nav-link" href="https://twitter.com/anilkmirge" target="_blank">
-          <i class="fa fa-twitter"></i>
-        </a>
-        <a class="nav-item nav-link" href="https://www.linkedin.com/in/anilmirge" target="_blank">
-          <i class="fa fa-linkedin"></i>
-        </a>
-      </div>
-    </div>
 </nav>
+<div class="bg-primary">
+  <span class="text-light ml-3 s1-tag">Sraddha</span>
+  <span class="text-light mr-3 s2-tag">Saburi</span>
+  <h1 class="text-light mb-3 text-center display-5">Om Sairam</h1>
+  <h1 class="text-light m-3 text-center text-uppercase display-4">Happy New Year</h1>
+</div>

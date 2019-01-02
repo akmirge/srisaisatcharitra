@@ -16,7 +16,7 @@
             <strong>{{language.name}}</strong>
           </label>
           <div *ngIf="preferredLanguage">
-            <a class="btn btn-outline-primary btn-lg m-2" (click)="showPreview = true">Preview</a>
+            <a href="#" class="btn btn-outline-primary btn-lg m-2" (click)="$event.preventDefault(); showPreview = true">Preview</a>
             <a target="_blank" [href]="preferredLanguage.url" class="btn btn-primary btn-lg m-2" download="Sai_Vrat_{{ preferredLanguage.name }}.pdf">Download
               Book in PDF</a>
           </div>
