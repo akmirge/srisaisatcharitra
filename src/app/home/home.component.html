@@ -35,20 +35,8 @@
     <app-chapters [preferredLanguageId]="preferredLanguageId">
     </app-chapters>
 </div>
-
-<div class="player align-bottom">
-    <!-- <div class="player__backward">
-              <button (click)="backward.emit()"><i class="fa fa-backward"></i></button>
-            </div> -->
-    <ng-template #playTipContent><h5>Click to play Saibaba Vibhuti Song..</h5></ng-template>
-    <ng-template #stopTipContent><h5>Click to stop</h5></ng-template>
-    <div class="player__main">
-      <button *ngIf="audio.paused" (click)="playAudio()"><i class="fa fa-play" placement="top" 
-        [ngbTooltip]="playTipContent" tooltipClass="tootip-class"></i></button>
-      <button *ngIf="!audio.paused" (click)="pauseAudio()"><i class="fa fa-pause" placement="top" 
-        [ngbTooltip]="stopTipContent" tooltipClass="tootip-class"></i></button>
-    </div>
-    <!-- <div class="player__forward">
-              <button (click)="forward.emit()"><i class="fa fa-forward"></i></button>
-            </div> -->
-  </div>
+<div class="bg-transparent border-primary text-center">
+    <audio [src]="audioUrl" controls>
+      <p>If you are reading this, it is because your browser does not support the audio element.</p>
+    </audio>
+</div>

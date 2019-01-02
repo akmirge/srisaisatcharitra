@@ -14,36 +14,15 @@ export class HomeComponent implements OnInit {
   public languages: Language[];
   public preferredLanguageId: number;
   public _url = '../../assets/data.json';
-  public audio = new Audio();
+  public audioUrl = '../../assets/songs/sai_baba_vibhuti.mp3';
   constructor(private httpService: HttpClient) { }
 
   ngOnInit(): void {
-    this.playAudio();
     this.preferredLanguageId = null;
     this.httpService.get(this._url).subscribe(
       data => {
         this.languages = data['languages'];
         this.images = data['homeImages'];
       });
-  }
-
-  public playAudio() {
-    this.audio.src = '../../assets/songs/sai_baba_vibhuti.mp3';
-    this.audio.load();
-    const playPromise = this.audio.play();
-    if (playPromise !== undefined) {
-      playPromise.then(success => {
-        console.log('Video playback started');
-      })
-      .catch(error => {
-        console.log('Video playback failed');
-      });
-    }
-  }
-
-  public pauseAudio() {
-    if (!this.audio.paused) {
-      this.audio.pause();
-    }
   }
 }
