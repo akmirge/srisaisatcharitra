@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   public languages: Language[];
   public preferredLanguageId: number;
   public _url = '../../assets/data.json';
-  public audioUrl = '../../assets/songs/sai_baba_vibhuti.mp3';
+  public audioUrl = '../../assets/songs/saibabaAartis/sai_baba_vibhuti.mp3';
   constructor(private httpService: HttpClient) { }
 
   ngOnInit(): void {
