@@ -8,12 +8,12 @@
             <form #languageForm="ngForm">
               <div class="form-group">
                 <label for="language">
-                  <h2>Please select your language: </h2>
+                  <h2>Select Book Language: </h2>
                 </label>
-                <select class="form-control-lg ml-2" id="language" required name="language" [(ngModel)]="preferredLanguageId"
+                <select class="form-control-lg ml-2" id="language" required name="language" [(ngModel)]="preferredBookLanguageId"
                   #language="ngModel">
                   <option [ngValue]="null">Please Select</option>
-                  <option *ngFor="let language of languages" [ngValue]="language.id">{{language.name}}</option>
+                  <option *ngFor="let language of bookLanguages" [ngValue]="language.id">{{language.name}}</option>
                 </select>
                 <div [hidden]="language.valid || language.pristine" class="alert alert-danger">
                   Language is required
@@ -21,7 +21,7 @@
               </div>
             </form>
           </div>
-          <div class="row mt-2 ml-0">
+          <div *ngIf="preferredBookLanguageId" class="row mt-2 ml-0">
             <div class="card mr-2 mb-2" *ngFor="let book of books" style="width: 15rem;">
               <img [src]="book.imageUrl" class="card-img-top" [alt]="book.alt">
               <div class="card-body">
@@ -39,18 +39,81 @@
       </ngb-tab>
       <ngb-tab title="Songs">
         <ng-template ngbTabContent>
-          <div class="row mt-2 ml-0">
-            <div class="card mr-auto mb-2" *ngFor="let aarti of saibabaAartis" style="width: 25rem;">
-                <img [src]="aarti.imageUrl" class="card-img-top" [alt]="aarti.alt">
+          <div class="container-fluid" class="mt-2 text-center">
+            <h1>Language Preference:</h1>
+            <form #languageForm="ngForm">
+              <div class="form-group">
+                <label for="language">
+                  <h2>Select Audio Language: </h2>
+                </label>
+                <select class="form-control-lg ml-2" id="language" required name="language" [(ngModel)]="preferredAudioLanguageId"
+                  #language="ngModel">
+                  <option [ngValue]="null">Please Select</option>
+                  <option *ngFor="let language of audioLanguages" [ngValue]="language.id">{{language.name}}</option>
+                </select>
+                <div [hidden]="language.valid || language.pristine" class="alert alert-danger">
+                  Language is required
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="card mt-1">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button type="button" class="btn btn-link btn-lg" (click)="isBabaAartisCollapsed = !isBabaAartisCollapsed"
+                  [attr.aria-expanded]="!isBabaAartisCollapsed" aria-controls="collapseBabaAartis">
+                  Shri Saibaba Aartis (In Marathi):
+                </button>
+              </h5>
+            </div>
+            <div id="collapseBabaAartis" [ngbCollapse]="!isBabaAartisCollapsed">
+              <div class="card">
+                <div class="card-body lead">
+                  <div class="row mt-2 ml-0">
+                    <div class="card mr-auto mb-2" *ngFor="let aarti of saibabaAartis" style="width: 25rem;">
+                      <img [src]="aarti.imageUrl" class="card-img-top" [alt]="aarti.alt">
+                      <div class="card-body">
+                        <h5 class="card-title">{{aarti.title}}</h5>
+                        <p class="card-text">{{aarti.description}}</p>
+                      </div>
+                      <div class="card-footer bg-transparent border-primary">
+                        <audio [src]="aarti.audioUrl" controls>
+                          <p>If you are reading this, it is because your browser does not support the audio element.</p>
+                        </audio>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="preferredAudioLanguageId" class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button type="button" class="btn btn-link btn-lg" (click)="isYatharthaGitaCollapsed = !isYatharthaGitaCollapsed"
+                  [attr.aria-expanded]="!isYatharthaGitaCollapsed" aria-controls="collapseYatharthaGita">
+                  Srimadh Bhagvada Gita (Yathartha Gita):
+                </button>
+              </h5>
+            </div>
+            <div id="collapseYatharthaGita" [ngbCollapse]="!isYatharthaGitaCollapsed">
+              <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{aarti.title}}</h5>
-                    <p class="card-text">{{aarti.description}}</p>
+                  <div class="row mt-2 ml-0">
+                    <div class="card mr-auto mb-2" *ngFor="let song of gitaSongs" style="width: 25rem;">
+                      <div class="card-body">
+                        <strong>{{getLanguageName(preferredAudioLanguageId)}}</strong>
+                        <span class="card-title"> - {{song.title}}</span>
+                      </div>
+                      <div class="card-footer bg-transparent border-primary">
+                        <audio [src]="song.audioUrl" controls>
+                          <p>If you are reading this, it is because your browser does not support the audio element.</p>
+                        </audio>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="card-footer bg-transparent border-primary">
-                  <audio [src]="aarti.audioUrl" controls>
-                    <p>If you are reading this, it is because your browser does not support the audio element.</p>
-                  </audio>
-                </div>
+              </div>
             </div>
           </div>
         </ng-template>

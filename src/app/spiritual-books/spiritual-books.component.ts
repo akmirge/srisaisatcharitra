@@ -12,26 +12,38 @@ import { Song } from '../model/song.model';
 export class SpiritualBooksComponent implements OnInit {
   public _url = '../../assets/data.json';
   public languages: Language[];
+  public bookLanguages: Language[];
+  public audioLanguages: Language[];
   public englishBooks: Book[];
   public hindiBooks: Book[];
   public teluguBooks: Book[];
   public saibabaAartis: Song[];
-  public preferredLanguageId: number = null;
+  public englishGitaSongs: Song[];
+  public hindiGitaSongs: Song[];
+  public teluguGitaSongs: Song[];
+  public isBabaAartisCollapsed = false;
+  public preferredBookLanguageId: number = null;
+  public preferredAudioLanguageId: number = null;
   constructor(private httpService: HttpClient) { }
 
   ngOnInit() {
     this.httpService.get(this._url).subscribe(
       data => {
-        this.languages = data['languages'];
+        this.languages = data['spiritualLanguages'];
+        this.bookLanguages = data['spiritualLanguages'];
+        this.audioLanguages = data['spiritualLanguages'];
         this.englishBooks = data['englishBooks'];
         this.hindiBooks = data['hindiBooks'];
         this.teluguBooks = data['teluguBooks'];
         this.saibabaAartis = data['saibabaAartis'];
+        this.englishGitaSongs = data['bhagvadGitasEnglish'];
+        this.hindiGitaSongs = data['bhagvadGitasHindi'];
+        this.teluguGitaSongs = data['bhagvadGitasTelugu'];
     });
   }
 
   get books() {
-    switch (this.preferredLanguageId) {
+    switch (this.preferredBookLanguageId) {
       case 1:
         return this.hindiBooks;
         break;
@@ -44,4 +56,21 @@ export class SpiritualBooksComponent implements OnInit {
     }
   }
 
+  get gitaSongs() {
+    switch (this.preferredAudioLanguageId) {
+      case 1:
+        return this.hindiGitaSongs;
+        break;
+      case 2:
+        return this.teluguGitaSongs;
+        break;
+    case 3:
+        return this.englishGitaSongs;
+        break;
+    }
+  }
+
+  getLanguageName(languageId: number): string {
+    return this.languages.find(language => language.id === languageId).name;
+  }
 }
