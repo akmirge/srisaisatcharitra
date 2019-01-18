@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { MatTabsModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
@@ -41,12 +42,14 @@ import { SpiritualBooksComponent } from './spiritual-books/spiritual-books.compo
   imports: [
     HttpClientModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     NgSelectModule,
     NgbModule,
     AppRoutingModule,
     UiModule,
-    MessageModule
+    MessageModule,
+    MatTabsModule
   ],
   providers: [NgbActiveModal],
   bootstrap: [AppComponent]
