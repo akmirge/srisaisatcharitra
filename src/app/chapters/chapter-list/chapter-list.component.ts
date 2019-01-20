@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angu
 import { Chapter } from 'src/app/model/chapter.model';
 import { HttpClient } from '@angular/common/http';
 import { Satcharitra } from 'src/app/model/model.satcharitra';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-chapter-list',
@@ -60,5 +61,9 @@ export class ChapterListComponent implements OnInit, OnChanges {
 
   onChapterSelection(chapter: Chapter) {
     this.chapterWasSelected.emit(chapter);
+  }
+
+  onDrop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.chapters, event.previousIndex, event.currentIndex);
   }
 }

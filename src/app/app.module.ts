@@ -19,6 +19,7 @@ import { MessageModule } from './messages/message.module';
 import { ExternalUrlDirective } from './external-url.directive';
 import { NotFoundComponent } from './not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NavGuruwarComponent } from './nav-guruwar/nav-guruwar.component';
 import { ShriRamComponent } from './shri-ram/shri-ram.component';
 import { SpiritualBooksComponent } from './spiritual-books/spiritual-books.component';
@@ -49,7 +50,8 @@ import { SpiritualBooksComponent } from './spiritual-books/spiritual-books.compo
     AppRoutingModule,
     UiModule,
     MessageModule,
-    MatTabsModule
+    MatTabsModule,
+    DragDropModule
   ],
   providers: [NgbActiveModal],
   bootstrap: [AppComponent]
