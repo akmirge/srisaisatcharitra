@@ -1,0 +1,50 @@
+.monthDateBackground {
+    color: #2d0a04;
+    font-size: 95%;
+    background-color: #eaae57;
+    padding: 0 1em 1em 1em;
+    margin: 0 20px;
+    border: #bc6031 2px solid;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+}
+
+.monthDateBackground h2 {
+    font-family: "Comic Sans MS",Verdana,Geneva,Arial,"Book Antiqua",sans-serif;
+    position: relative;
+    padding: .2em 1em .2em 1em;
+    color: #521804;
+    background-color: #d8894e;
+    border: 2px solid #77391b;
+    line-height: 1.2em;
+    float: left;
+    margin: 0;
+    font-size: 100%;
+    top: -1em;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+}
+
+.monthDateNum {
+    font-family: "Comic Sans MS",Verdana,Geneva,Arial,"Book Antiqua",sans-serif;
+    font-size: 6em;
+    color: #521804;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.monthDateTxt {
+    font-family: "Comic Sans MS",Verdana,Geneva,Arial,"Book Antiqua",sans-serif;
+    font-size: 1.8em;
+    color: #521804;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 10px;
+}

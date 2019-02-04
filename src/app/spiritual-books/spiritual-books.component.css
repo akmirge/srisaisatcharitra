@@ -1,0 +1,9 @@
+.vrat-card {
+  max-width: 200px;
+}
+
+.vrat-header-image {
+  background-image: url('../../assets/images/spiritualImages/vrats/ganapati-bappa.jpg');
+  background-size: cover;
+  padding-right: 70px;
+}

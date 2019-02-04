@@ -114,6 +114,28 @@
           </div>
         </div>
       </mat-tab>
+      <mat-tab label="Vrat and Dates">
+          <div class="row mt-2 mb-2">
+              <div class="col-sm-3">
+                  <mat-card class="mat-elevation-z8" *ngFor="let vrat of vrats">
+                      <mat-card-header>
+                        <div mat-card-avatar class="vrat-header-image"></div>
+                        <mat-card-title>{{vrat.title}}</mat-card-title>
+                      </mat-card-header>
+                      <img mat-card-image [src]="vrat.imageUrl" [alt]="vrat.alt">
+                      <mat-card-content>
+                       <p>{{vrat.description}}</p>
+                      </mat-card-content>
+                      <mat-card-actions>
+                        <button mat-raised-button color="warn" (click)="onSelection(vrat)">More Details and Dates</button>
+                      </mat-card-actions>
+                  </mat-card>
+              </div>
+              <div class="col-sm-9" *ngIf="selectedVrat">
+                <app-vrat-detail [selectedVrat]="selectedVrat"></app-vrat-detail>
+              </div>
+            </div>
+      </mat-tab>
     </mat-tab-group>
   </div>
 </div>

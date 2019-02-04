@@ -1,0 +1,54 @@
+<div class="row" *ngIf="selectedVrat">
+  <div class="col-xs-12">
+    <mat-card class="mat-elevation-z8">
+      <mat-card-title>{{selectedVrat.title}}</mat-card-title>
+      <mat-card-content>
+        <p>{{selectedVrat.content}}</p>
+        <h4>List of {{selectedVrat.title}} Dates:</h4>
+        <form #vratForm="ngForm">
+          <div class="form-group">
+            <label for="year">
+              <h5>Select Year: </h5>
+            </label>
+            <select class="form-control-lg ml-2" id="year" required 
+              name="year" [(ngModel)]="selectedYearId" 
+              (change)="onYearSelection(selectedYearId)"
+              #year="ngModel">
+              <option [ngValue]="null">Please Select</option>
+              <option *ngFor="let vratDate of selectedVrat.vratDates" [ngValue]="vratDate.yearId">{{vratDate.yearId}}</option>
+            </select>
+            <div [hidden]="year.valid || year.pristine" class="alert alert-danger">
+              Year selection is required
+            </div>
+            <span *ngIf="showMonthSelection" class="ml-2">
+              <label for="month">
+                <h5>Select Month: </h5>
+              </label>
+              <select class="form-control-lg ml-2" id="month" required name="month" [(ngModel)]="selectedMonth"
+                (change)="onMonthSelection(selectedMonth)" #month="ngModel">
+                <option [ngValue]="null">Please Select</option>
+                <option *ngFor="let month of months" [ngValue]="month">{{month}}</option>
+              </select>
+              <div [hidden]="month.valid || month.pristine" class="alert alert-danger">
+                Month selection is required
+              </div>
+            </span>
+          </div>
+        </form>
+        <div *ngIf="selectedMonth">
+          <div class="monthDateBackground" *ngFor="let monthlyDate of monthlyDates">
+            <h2><b>{{monthlyDate.vratType}}</b></h2>
+            <div class="monthDateNum" style="clear:both">
+              {{monthlyDate.date}}
+            </div>
+            <div class="monthDateTxt">
+              {{monthlyDate.month}}<br>({{monthlyDate.day}})
+              <p>Moon Rise Time: {{monthlyDate.time}}</p>
+            </div>
+          </div>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

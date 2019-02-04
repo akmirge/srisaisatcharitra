@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Book } from '../model/book.model';
 import { Language } from '../model/model.language';
 import { Song } from '../model/song.model';
+import { Vrat } from '../model/vrat.model';
 
 @Component({
   selector: 'app-spiritual-books',
   templateUrl: './spiritual-books.component.html',
   styleUrls: ['./spiritual-books.component.css']
 })
-export class SpiritualBooksComponent implements OnInit {
+export class SpiritualBooksComponent implements OnInit, OnChanges { 
   public _url = '../../assets/data.json';
   public languages: Language[];
   public bookLanguages: Language[];
@@ -21,6 +22,8 @@ export class SpiritualBooksComponent implements OnInit {
   public englishGitaSongs: Song[];
   public hindiGitaSongs: Song[];
   public teluguGitaSongs: Song[];
+  public vrats: Vrat[];
+  public selectedVrat: Vrat;
   public isBabaAartisCollapsed = false;
   public preferredBookLanguageId: number = null;
   public preferredAudioLanguageId: number = null;
@@ -39,7 +42,12 @@ export class SpiritualBooksComponent implements OnInit {
         this.englishGitaSongs = data['bhagvadGitasEnglish'];
         this.hindiGitaSongs = data['bhagvadGitasHindi'];
         this.teluguGitaSongs = data['bhagvadGitasTelugu'];
+        this.vrats = data['vrats'];
     });
+  }
+
+  ngOnChanges() {
+    this.selectedVrat = null;
   }
 
   get books() {
@@ -72,5 +80,9 @@ export class SpiritualBooksComponent implements OnInit {
 
   getLanguageName(languageId: number): string {
     return this.languages.find(language => language.id === languageId).name;
+  }
+
+  onSelection(vrat: Vrat) {
+    this.selectedVrat = vrat;
   }
 }

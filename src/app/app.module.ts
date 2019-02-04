@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { MatTabsModule } from '@angular/material';
+import { MatTabsModule, MatCardModule, MatButtonModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
@@ -23,6 +23,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NavGuruwarComponent } from './nav-guruwar/nav-guruwar.component';
 import { ShriRamComponent } from './shri-ram/shri-ram.component';
 import { SpiritualBooksComponent } from './spiritual-books/spiritual-books.component';
+import { VratDetailComponent } from './vrat-detail/vrat-detail.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SpiritualBooksComponent } from './spiritual-books/spiritual-books.compo
     ExternalUrlDirective,
     NavGuruwarComponent,
     ShriRamComponent,
-    SpiritualBooksComponent
+    SpiritualBooksComponent,
+    VratDetailComponent
   ],
   imports: [
     HttpClientModule,
@@ -51,7 +53,9 @@ import { SpiritualBooksComponent } from './spiritual-books/spiritual-books.compo
     UiModule,
     MessageModule,
     MatTabsModule,
-    DragDropModule
+    DragDropModule,
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [NgbActiveModal],
   bootstrap: [AppComponent]
