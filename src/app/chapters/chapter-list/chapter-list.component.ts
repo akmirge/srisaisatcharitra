@@ -14,7 +14,7 @@ export class ChapterListComponent implements OnInit, OnChanges {
   public satcharitras: Satcharitra[];
   public chapters: Chapter[] = [];
   @Output() chapterWasSelected = new EventEmitter<Chapter>();
-  public chaptersPerPage = 5;
+  public chaptersPerPage = 10;
   public selectedPage = 1;
   public _url = '../../assets/data.json';
 
@@ -24,7 +24,7 @@ export class ChapterListComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.chaptersPerPage = 5;
+    this.chaptersPerPage = 10;
     this.selectedPage = 1;
     this.loadChaptersPerPage();
   }

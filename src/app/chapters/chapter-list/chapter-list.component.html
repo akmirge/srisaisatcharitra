@@ -1,18 +1,19 @@
 <div class="container-fluid chapter-list" *ngIf="chapters.length > 0" cdkDropList (cdkDropListDropped)="onDrop($event)">
       <app-chapter-item class="chapter-box" *ngFor="let chapter of chapters" [preferredLanguageId]="preferredLanguageId" [chapter]="chapter" (chapterSelected)="onChapterSelection(chapter)" cdkDrag></app-chapter-item>
-      <div class="form-inline float-left m-3">
-        <select class="form-control" [value]="chaptersPerPage" (change)="changePageSize($event.target.value)">
-          <option value="5">5 per page</option>
-          <option value="10">10 per page</option>
-          <option value="15">15 per page</option>
-          <option value="20">20 per page</option>
-        </select>
-      </div>
-      <div class="btn-group m-3">
-        <button *ngFor="let page of pageNumbers" (click)="changePage(page)" class="btn btn-outline-primary mb-5"
-          [class.active]="page == selectedPage">
-          {{page}}
-        </button>
+      <div class="row">             <!-- responsive row has 12 columns by default -->
+        <div class="col-md-6 form-inline float-left mr-1 mt-3">
+          <select class="form-control" [value]="chaptersPerPage" (change)="changePageSize($event.target.value)">
+            <option value="10">10 per page</option>
+            <option value="15">15 per page</option>
+            <option value="20">20 per page</option>
+          </select>
+        </div>
+        <div class="col-md-6 btn-group float-right mt-3">
+          <button *ngFor="let page of pageNumbers" (click)="changePage(page)" class="btn btn-outline-primary mb-5"
+            [class.active]="page == selectedPage">
+            {{page}}
+          </button>
+        </div>
       </div>
 </div>
 <div class="text-center" *ngIf="chapters.length === 0">
