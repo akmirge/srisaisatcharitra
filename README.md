@@ -14,4 +14,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+Go inside dist/SriSaiSatcharitra folder and copy the contents inside of it and paste into ../dist folder removing everything inside of dist first.
+
+Next cd into dist folder again and run now. This will build the application for now server. Change the url name by using now alias 'old url' sri-sai-satcharitra.
+
+Copy the dist folder contents into saiportfolio/akmirge.github.io and git push
+
 
