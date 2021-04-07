@@ -10,12 +10,11 @@
             <label for="year">
               <h5>Select Year: </h5>
             </label>
-            <select class="form-control-lg ml-2" id="year" required 
-              name="year" [(ngModel)]="selectedYearId" 
-              (change)="onYearSelection(selectedYearId)"
-              #year="ngModel">
+            <select class="form-control-lg ml-2" id="year" required name="year" [(ngModel)]="selectedYearId"
+              (change)="onYearSelection(selectedYearId)" #year="ngModel">
               <option [ngValue]="null">Please Select</option>
-              <option *ngFor="let vratDate of selectedVrat.vratDates" [ngValue]="vratDate.yearId">{{vratDate.yearId}}</option>
+              <option *ngFor="let vratDate of selectedVrat.vratDates" [ngValue]="vratDate.yearId">{{vratDate.yearId}}
+              </option>
             </select>
             <div [hidden]="year.valid || year.pristine" class="alert alert-danger">
               Year selection is required
@@ -36,6 +35,9 @@
           </div>
         </form>
         <div *ngIf="selectedMonth">
+          <div *ngIf="!monthlyDates || monthlyDates.length === 0">
+            <h2 class="monthDateTxt"><b>Sankasthi does not fall into this month.</b></h2>
+          </div>
           <div class="monthDateBackground" *ngFor="let monthlyDate of monthlyDates">
             <h2><b>{{monthlyDate.vratType}}</b></h2>
             <div class="monthDateNum" style="clear:both">
